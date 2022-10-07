@@ -42,7 +42,6 @@ for i in range(len(transport_)):
 #Checking if the datetime of the start and stop of the activity is recorded in the trajectories
 #and if they are then they are stored in the new transportation list, where only the trasportations
 #with corresponding trajectory points are.
-#We now have all the recorded activities.
     if (transport_[i]).size == 1:
       if (transport_[i]["start_date"] in data[i]) and (transport_[i]["end_date"] in data[i]):
         transport[i].append((transport_[i]["start_date"], transport_[i]["end_date"], transport_[i]["Transportation"]))
@@ -50,7 +49,7 @@ for i in range(len(transport_)):
       for item in ((transport_[i])):
         if (item[0] in data[i]) and (item[1] in data[i]):
           transport[i].append(item)
-
+#We now have all the recorded activities.
 
 #Function for inserting the data into the database created in ActivityDB.py.
 
@@ -71,9 +70,7 @@ def main():
 #Creating a flat list of the valid tracking points, instead of the tracking points being in lists containing to the files they were read from.
       f_data = [item for sublist in data_[user] for item in sublist]
 
-#f_transport = [item for sublist in transport for item in sublist]
-
-#Inserting the current user int>o the table User.
+#Inserting the current user into the table User.
       print("User number: ", user)
       database.insert_user_data(user=user)
 

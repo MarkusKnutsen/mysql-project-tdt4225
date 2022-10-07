@@ -11,7 +11,7 @@ class ActivityDB:
     self.cursor = self.connection.cursor
   
 #I do not use the boleean value of "Has labels", as all the users registered to the database 
-#will have labels, as those are the users we will be investigating.
+#will have labels, as those are the users we will be investigating. This is discussed in the report.
   def create_user_table(self):
     query = """CREATE TABLE IF NOT EXISTS User (
                 id VARCHAR(3) NOT NULL PRIMARY KEY
