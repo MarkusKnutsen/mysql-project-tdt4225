@@ -25,7 +25,7 @@ class ActivityDB:
     query = """CREATE TABLE IF NOT EXISTS Activity (
                 id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
                 user_id VARCHAR(3) NOT NULL,
-                FOREIGN KEY (user_id) REFERENCES User(id),
+                FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE ON UPDATE CASCADE,
                 transportation_mode VARCHAR(10) NOT NULL,
                 start_date_time DATETIME NOT NULL,
                 end_date_time DATETIME NOT NULL
@@ -39,7 +39,7 @@ class ActivityDB:
     query = """CREATE TABLE IF NOT EXISTS TrackPoint (
                 id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
                 activity_id INT NOT NULL,
-                FOREIGN KEY (activity_id) REFERENCES Activity(id),
+                FOREIGN KEY (activity_id) REFERENCES Activity(id) ON DELETE CASCADE ON UPDATE CASCADE,
                 lat DOUBLE NOT NULL,
                 lon DOUBLE NOT NULL,
                 altitude INT NOT NULL,
